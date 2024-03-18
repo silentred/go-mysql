@@ -32,8 +32,7 @@ type Conn struct {
 	cachingSha2FullAuth bool
 
 	h Handler
-	// net connection
-	// connGetter NetConnGetter
+	// db name from handshake
 	db string
 
 	stmts  map[uint32]*Stmt

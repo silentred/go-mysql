@@ -3,7 +3,6 @@ package server
 import (
 	"fmt"
 	"io"
-	"net"
 
 	"github.com/go-mysql-org/go-mysql/client"
 	"github.com/siddontang/go-log/log"
@@ -14,10 +13,6 @@ const (
 	BackendUser   string = "backend_user"
 	BackendPasswd string = "backend_passwd"
 )
-
-type NetConnGetter interface {
-	GetConnection() net.Conn
-}
 
 // RunSimpleCopy blocks until the front/back connection is close.
 func (c *Conn) RunSimpleCopy() (err error) {
