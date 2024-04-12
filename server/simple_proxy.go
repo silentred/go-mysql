@@ -21,8 +21,10 @@ func (c *Conn) RunSimpleCopy() (err error) {
 	}
 
 	defer func() {
-		c.writeError(err)
-		c.Conn.Close()
+		if err != nil {
+			c.writeError(err)
+		}
+		c.Close()
 	}()
 
 	// get backend connection info
